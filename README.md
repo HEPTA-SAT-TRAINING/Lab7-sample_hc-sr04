@@ -49,14 +49,7 @@ Distance: 41.8 [cm]
 Distance: timeout / out of range
 ```
 
-## File Layout
-
-| Path | Role |
-|------|------|
-| `Lab7-sample_hc-sr04.ino` | Lab wiring, `cdh.printf` output, sample loop |
-| `hc_sr04.h` / `hc_sr04.cpp` | Self-contained HC-SR04 driver (trigger / echo / distance) |
-| `src/` | HEPTA-SAT Library submodule (`HeptaSat.h`, CDH / EPS, …) |
-
 ## Driver
 
-- `hc_sr04.h` / `hc_sr04.cpp` (sketch-local; no third-party ultrasonic library)
+- `src/drv/hc_sr04.h` / `.cpp` (HEPTA-SAT Library)
+- Details: `src/docs/drivers/hc-sr04.md`

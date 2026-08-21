@@ -1,5 +1,5 @@
 #include "src/HeptaSat.h"
-#include "hc_sr04.h"
+#include "src/drv/hc_sr04.h"
 
 HeptaCdh cdh;
 HeptaEps eps;
