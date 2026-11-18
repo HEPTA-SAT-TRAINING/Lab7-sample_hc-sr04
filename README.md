@@ -17,8 +17,8 @@ HEPTA-SAT training sample: **HC-SR04 (2020)** ultrasonic distance sensor (no thi
 
 | Sensor | HEPTA-SAT |
 |--------|-----------|
-| TRIG | `USER_IO_1` |
-| ECHO | `USER_IO_2` |
+| TRIG | **IO1** (`USER_IO_1`) |
+| ECHO | **IO2** (`USER_IO_2`) |
 | VCC | **3.3 V** payload (`eps.switch_3V3_on()`) |
 | GND | GND |
 
