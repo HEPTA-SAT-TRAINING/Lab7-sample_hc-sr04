@@ -13,23 +13,18 @@ HEPTA-SAT training sample: **HC-SR04 (2020)** ultrasonic distance sensor (no thi
 | Conversion | `distance [cm] = pulse_us × 0.0343 / 2` (speed of sound ≈ 343 m/s) |
 | Min. interval | ≥ 200 ms between measurements |
 
-## Pin Assignment
-
-| Signal | Board pin | MCU GPIO |
-|--------|-----------|----------|
-| TRIG | **USER_IO_1** | **GP21** |
-| ECHO | **USER_IO_2** | **GP22** |
-
 ## Wiring (HEPTA-SAT V4.1.1)
 
 | Sensor | HEPTA-SAT |
 |--------|-----------|
-| TRIG | USER_IO_1 (GP21) |
-| ECHO | USER_IO_2 (GP22) |
+| TRIG | `USER_IO_1` |
+| ECHO | `USER_IO_2` |
 | VCC | **3.3 V** payload (`eps.switch_3V3_on()`) |
 | GND | GND |
 
-> **2020 module:** With VCC = 3.3 V, Echo is also 3.3 V logic, so GP22 can be wired
+Pass the TRIG terminal first and the ECHO terminal second: `ultrasonic.begin(USER_IO_1, USER_IO_2)`.
+
+> **2020 module:** With VCC = 3.3 V, Echo is also 3.3 V logic, so USER_IO_2 can be wired
 > directly (no level shifter). Older 5 V-only HC-SR04 modules are out of scope for this sample.
 
 ## Build and Upload
@@ -43,7 +38,7 @@ HEPTA-SAT training sample: **HC-SR04 (2020)** ultrasonic distance sensor (no thi
 ## Example Serial Output
 
 ```
-HC-SR04 2020 ready (TRIG=GP21 / ECHO=GP22, VCC=3.3V)
+HC-SR04 2020 ready
 Distance: 42.3 [cm]
 Distance: 41.8 [cm]
 Distance: timeout / out of range
@@ -51,5 +46,6 @@ Distance: timeout / out of range
 
 ## Driver
 
+- Board interface: `HeptaHcSr04` from `src/HeptaSat.h`
 - `src/drv/hc_sr04.h` / `.cpp` (HEPTA-SAT Library)
 - Details: `src/docs/drivers/hc-sr04.md`
